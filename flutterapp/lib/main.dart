@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:  
       Container(
+               
         child: FutureBuilder<List>(
            future: studentService.getAllStudent(),
            builder: (context, snapshot) {
@@ -54,12 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     itemCount: snapshot.data?.length,
                     itemBuilder: (context, i){
         return Card(
+          
           child: ListTile(
+             
              title:Text(
-              'Name', style: TextStyle(fontSize: 30.0)
+              snapshot.data![i]['stuname'],
+              style: TextStyle(fontSize: 30.0)
               ,),
                subtitle: Text(
-              'Email', style: TextStyle(fontSize: 30.0)
+              snapshot.data![i]['email'],
+              style: TextStyle(fontSize: 30.0)
               ,),
               
              ),
